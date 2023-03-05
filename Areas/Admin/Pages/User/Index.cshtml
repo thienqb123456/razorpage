@@ -1,0 +1,38 @@
+﻿@page "/admin/user-manager"
+@model ValorantMoments.Areas.Admin.Pages.User.IndexModel
+@{
+    var stt = 0;
+}
+
+<h2> User Manager</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th> UserName</th>
+            <th>Role</th>
+            <th>Handler</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+                <tr>
+                    <td>
+                        @(++stt)
+                    </td>
+                    <td>
+                        <p> @user.UserName</p>
+                    </td>
+                    <td>
+                        updating...
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" asp-page="./AddRole"  asp-route-id ="@user.Id">Add Role User</a> 
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

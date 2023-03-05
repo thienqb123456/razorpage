@@ -1,0 +1,82 @@
+﻿@page "/moments"
+@model ValorantMoments.Pages.Moments2.IndexModel
+@{
+    int stt = 0;
+}
+<div>
+    <p>
+        <a class="btn btn-primary" asp-page="Create">Create New</a>
+    </p>
+
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+            <input name="searchString" class="form-control mr-medium-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+</div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Moment[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Moment[0].Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Moment[0].Description)
+            </th>
+
+            <th>
+                 @Html.DisplayNameFor(model => model.Moment[0].TimeCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Moment[0].MomentLink)
+            </th>
+            <th>Hander</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var moment in Model.Moment) {
+        <tr>
+            <td>
+                @(++stt)
+            </td>
+            <td>
+                    <p>@moment.Name</p>
+            </td>
+            <td>
+                    <p>@moment.Author</p>
+            </td>
+            <td>
+                    <p>@moment.Description</p>
+
+            </td>
+
+             <td>
+                    <p>@moment.TimeCreated</p>
+
+             </td>
+             <td>
+                    <a target="_blank" href="https://youtu.be/@moment.MomentLink ">Watch Moment</a>
+                </td>
+            <td>
+                    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@moment.Id">Edit</a> |
+                    <a class="btn btn-outline-primary"  asp-page="./Details" asp-route-id="@moment.Id">Details</a> |
+                    <a class="btn btn-danger"asp-page="./Delete" asp-route-id="@moment.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<form method="post" >
+    <button class="btn btn-danger">Delete All</button>
+</form>
+

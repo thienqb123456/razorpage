@@ -1,0 +1,26 @@
+﻿@page "/admin/add-role-user"
+@model ValorantMoments.Areas.Admin.Pages.User.AddRoleModel
+@{
+    ViewData["Title"] = "Add Role Page";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" id="id-select-roles">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RolesName" class="control-label"></label>
+
+                @Html.ListBoxFor(m =>m.RolesName, Model.AllRoles, new {})
+
+                <span asp-validation-for="RolesName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<p>
+    <a asp-page="/Moments/Create">Create New</a>
+</p>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      @foreach (var moment in Model.Moment)
+    {
+        <iframe 
+            width="560" 
+            height="315"
+            src="https://www.youtube.com/embed/@moment.MomentLink"
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+         </iframe>
+        <h1> @moment.Name </h1>
+        <p> @moment.Author</p>
+        <p>@moment.Description</p>
+    }
+    </div>
+    
+  </div>
+</div>

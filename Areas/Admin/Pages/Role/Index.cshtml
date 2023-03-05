@@ -1,0 +1,41 @@
+﻿@page "/admin/role-manager"
+@model ValorantMoments.Areas.Admin.Pages.Role.IndexModel
+@{
+    ViewData["Title"] = "Role Manager";
+    
+}
+
+<h1>@ViewData["Title"] </h1>
+
+<a class="btn btn-info" asp-area="Admin" asp-page="/Role/Create">Create a Role</a>
+<a class="btn btn-success" asp-area="Admin" asp-page="/User/Index">User Manager</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Role ID</th>
+            <th> Role Name </th>
+            <th> Permission </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model.Roles)
+        {
+            <tr>
+                <td>
+                    <p>@role.Id</p>
+                </td>
+                <td>
+                    <p>@role.Name</p>
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-page="./Edit"  asp-route-roleid="@role.Id">Edit</a> |
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-roleid="@role.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

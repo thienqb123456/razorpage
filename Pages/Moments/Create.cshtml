@@ -1,0 +1,43 @@
+﻿@page
+@model ValorantMoments.Pages.Moments2.CreateModel
+
+<h4>Moment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Moment.Name" class="control-label"></label>
+                <input asp-for="Moment.Name" class="form-control" />
+                <span asp-validation-for="Moment.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Moment.Author" class="control-label"></label>
+                <input asp-for="Moment.Author" class="form-control" />
+                <span asp-validation-for="Moment.Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Moment.Description" class="control-label"></label>
+                <input asp-for="Moment.Description" class="form-control" />
+                <span asp-validation-for="Moment.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Moment.MomentLink" class="control-label"></label>
+                <input asp-for="Moment.MomentLink" class="form-control" />
+                <span asp-validation-for="Moment.MomentLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
